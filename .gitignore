@@ -21,3 +21,6 @@ studio/public/audio/*.wav
 # Secrets (ElevenLabs keys etc.)
 .env
 .env.*
+
+# Scratch frames for thumbnails
+videos/*/thumb-work/

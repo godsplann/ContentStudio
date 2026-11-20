@@ -1,6 +1,6 @@
 # Theme: Undercover
 
-Set up on 18 November 2026. First video: "The ship nobody sank" (Q-ships), built 18 November 2026 in `studio/src/q-ship/`, 71 s, 992 credits for the voice. Second video: "The Soldier Who Ate His Cigarettes" (Wojtek), built 19 November 2026 in `studio/src/wojtek/`, 65 s, 845 credits. Scripts for the Emu War, Headless Mike and Violet Jessop are ready in `videos/undercover/` (not voiced yet). Points marked **(proposed)** are Claude's starting suggestions still to be confirmed by the owner.
+Set up on 18 November 2026. First video: "The ship nobody sank" (Q-ships), built 18 November 2026 in `studio/src/q-ship/`, 71 s, 992 credits for the voice. Second video: "The Soldier Who Ate His Cigarettes" (Wojtek), built 19 November 2026 in `studio/src/wojtek/`, 65 s, 845 credits. Third video: "Why Four Soldiers Could Lift a Tank" (the Ghost Army), built 20 November 2026 in `studio/src/ghost-army/`, 62.5 s, the first told as a mystery (a strange act first, the reason held back until the end). Scripts ready in `videos/undercover/`, not voiced yet: the Emu War, Headless Mike and Violet Jessop (written in the earlier formula), and the 1904 Olympic marathon. Points marked **(proposed)** are Claude's starting suggestions still to be confirmed by the owner.
 
 - **Theme id:** `undercover` (in `studio/src/themes.ts`)
 - **Channel:** **Undercover**, a separate channel from Mind Matter and Epic Mythology (name given by the owner, 18 November 2026). Never put another channel's name, logo, narrator or cast in these videos.
@@ -98,7 +98,7 @@ Final direction chosen by the owner on 18 November 2026 (concept B, "the reveal"
 - `banner.png` (2560 x 1440): the dome mark beside the wordmark UNDERCOVER (Bebas Neue, cream with a dark drop) and the line "Little-known stories. Big twists." (Space Grotesk Bold on a gold tag), on coral with soft light rays, floating sparkles and question marks. Mark, name and line sit inside the centre 1546 x 423 strip that phones show.
 - `source/*.html`: the files they are drawn from; edit and re-render with headless Chrome at the same sizes.
 - Colours: coral `#ffb184` / `#f4805c` / `#de5f45` (light centre to edge), cream `#fff8ea` and `#f4efe4`, gold `#ffd25e` to `#ffb43c`, light `#fff6c8`, ink outline `#14161c`.
-- Fonts (in `brand/fonts/`, with licences): Bebas Neue (OFL) for the wordmark, Space Grotesk Bold for lines of text. Special Elite (Apache 2.0) is there from the earlier design and is no longer used. Video captions stay in Space Grotesk.
+- Fonts (in `brand/fonts/`, with licences): Bebas Neue (OFL) for the wordmark, Space Grotesk Bold for lines of text. Special Elite (Apache 2.0) is there from the earlier design and is no longer used. Video captions use Bebas Neue (see Captions and signs).
 
 ## Where the files go
 

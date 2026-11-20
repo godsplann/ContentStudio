@@ -17,6 +17,7 @@ import {Glowing, glowingDuration} from './glow/Glowing';
 import {GlowingStills, STILL_FRAMES as GLOW_STILLS} from './glow/Stills';
 import {QShip, qShipDuration, QShipStills, STILL_FRAMES as QS_STILLS} from './q-ship/QShip';
 import {Wojtek, wojtekDuration, WojtekStills, STILL_FRAMES as WJ_STILLS} from './wojtek/Wojtek';
+import {GhostArmy, ghostArmyDuration, GhostArmyStills, STILL_FRAMES as GA_STILLS} from './ghost-army/GhostArmy';
 import './fonts';
 
 // Register one <Composition> per video. Each appears in Remotion Studio and can be rendered by id.
@@ -105,6 +106,16 @@ export const Root: React.FC = () => {
         defaultProps={{audio: true}}
       />
       <Composition id="WojtekStills" component={WojtekStills} durationInFrames={WJ_STILLS.length} fps={30} width={1080} height={1920} />
+      <Composition
+        id="GhostArmy"
+        component={GhostArmy}
+        durationInFrames={ghostArmyDuration}
+        fps={VIDEO.fps}
+        width={VIDEO.width}
+        height={VIDEO.height}
+        defaultProps={{audio: true}}
+      />
+      <Composition id="GhostArmyStills" component={GhostArmyStills} durationInFrames={GA_STILLS.length} fps={30} width={1080} height={1920} />
       <Composition id="GlowCast" component={GlowCastSheet} durationInFrames={1} fps={30} width={2200} height={1500} />
     </>
   );

@@ -11,12 +11,10 @@ Everything that makes the videos, in one place. The folder now serves more than 
 | `brand/undercover/` | Undercover channel art: profile picture and banner, with the HTML they are drawn from |
 | `brand/epic-mythology/` | Epic Mythology channel art: profile picture, banner and channel description |
 | `brand/palette.png` | The palette as a picture |
-| `brand/fonts/` | Space Grotesk (Medium and Bold) and Poppins Bold (for Hindi), with their licences |
-| `logo/` | Earlier Mind Matter logo (replaced by `brand/mind-matter/`) as SVG and 1000 px PNG, navy and light versions, plus the mark alone for dark backgrounds |
-| `reference/cpu-vs-gpu-script.md` | The script of the first video (made in the earlier flat 2D look) |
+| `brand/fonts/` | Space Grotesk (Medium and Bold), Poppins Bold (for Hindi) and Bebas Neue (Undercover captions), with their licences. Special Elite is unused, left from an earlier Undercover design |
 | `reference/toon-3d-style.md` | The toon-3D style: what the sample videos did, and how the studio builds it |
 | `reference/workflow.md` | The steps from topic to finished video, rendering, sound mix, and how to keep cost down |
-| `videos/` | Finished videos |
+| `videos/` | One folder per channel: scripts, posting notes (title, description, sources), thumbnails and finished videos. Videos are kept out of git (too big) |
 | `studio/` | The 3D video project: Three.js scenes rendered with Remotion. See `studio/README.md` |
 
 To use this with Claude: connect this folder in the Claude desktop app and ask for a new video. Claude reads `CLAUDE.md` first, asks which theme the video is for, and then reads that theme's file.

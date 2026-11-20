@@ -6,8 +6,8 @@ import * as THREE from 'three';
 import {dot, drawHead, Expr, FONT, INK, stick, toTexture} from './toon';
 
 export type Top = 'hoodie' | 'labcoat' | 'bare' | 'scrubs' | 'shirt' | 'check' | 'coat' | 'jumper';
-export type Headwear = 'none' | 'hair' | 'bun' | 'beanie' | 'straw' | 'cap' | 'peaked' | 'watch';
-export type Carry = 'none' | 'case' | 'tablet' | 'clipboard' | 'glowstick' | 'teacup' | 'oar' | 'binoculars' | 'crate' | 'bottle' | 'cigs' | 'tins' | 'papers';
+export type Headwear = 'none' | 'hair' | 'bun' | 'beanie' | 'straw' | 'cap' | 'peaked' | 'watch' | 'helmet' | 'beret';
+export type Carry = 'none' | 'case' | 'tablet' | 'clipboard' | 'glowstick' | 'teacup' | 'oar' | 'binoculars' | 'crate' | 'bottle' | 'cigs' | 'tins' | 'papers' | 'brush';
 export type PersonPose = 'stand' | 'sit' | 'point' | 'hold' | 'carry' | 'lookUp' | 'armsUp' | 'shrug' | 'reach';
 
 export type PersonLook = {
@@ -22,6 +22,9 @@ export type PersonLook = {
   label?: string;
   carry?: Carry;
   beard?: string; // beard and moustache colour (sea captains, old sailors)
+  moustache?: string; // a moustache alone, in this colour
+  crown?: string; // crown colour of a 'peaked' cap (white by default, as for ship's officers)
+  stars?: number; // a general's stars on the headwear (1 to 3)
 };
 
 const canvas = (w: number, h: number) => {
@@ -213,6 +216,28 @@ const carried = (g: CanvasRenderingContext2D, what: Carry, x: number, y: number)
       g.lineTo(x + 40, y - 60 + i * 26);
       g.stroke();
     }
+  } else if (what === 'brush') {
+    // a paintbrush with a wet red tip, held up
+    g.save();
+    g.translate(x, y);
+    g.rotate(-0.6);
+    g.fillStyle = '#c9915a';
+    g.beginPath();
+    g.roundRect(-9, -20, 18, 150, 8);
+    g.fill();
+    g.stroke();
+    g.fillStyle = '#b8bcc4';
+    g.fillRect(-11, -46, 22, 30);
+    g.strokeRect(-11, -46, 22, 30);
+    g.fillStyle = '#d8402c';
+    g.beginPath();
+    g.moveTo(-11, -46);
+    g.quadraticCurveTo(-12, -86, 0, -100);
+    g.quadraticCurveTo(12, -86, 11, -46);
+    g.closePath();
+    g.fill();
+    g.stroke();
+    g.restore();
   } else if (what === 'binoculars') {
     g.fillStyle = '#2a2d36';
     for (const sx of [-30, 30]) {
@@ -613,8 +638,8 @@ export const drawPerson = (look: PersonLook, pose: PersonPose, expr: Expr): HTML
     g.fill();
     g.stroke();
   } else if (head === 'peaked') {
-    // a ship's officer's peaked cap: white crown, dark band, black peak, gold badge
-    g.fillStyle = '#f7f6f1';
+    // a peaked cap: white crown (or look.crown), dark band, black peak, gold badge
+    g.fillStyle = look.crown ?? '#f7f6f1';
     g.beginPath();
     g.ellipse(hx, hy - 150, 176, 46, 0, 0, Math.PI * 2);
     g.fill();
@@ -655,6 +680,95 @@ export const drawPerson = (look: PersonLook, pose: PersonPose, expr: Expr): HTML
     g.beginPath();
     g.roundRect(hx - 160, hy - 96, 320, 48, 18);
     g.fill();
+    g.stroke();
+  } else if (head === 'helmet') {
+    // a round steel army helmet: a deep dome with a wide rim and a chin strap
+    g.fillStyle = hc;
+    g.beginPath();
+    g.moveTo(hx - 178, hy - 58);
+    g.bezierCurveTo(hx - 176, hy - 250, hx + 176, hy - 250, hx + 178, hy - 58);
+    g.closePath();
+    g.fill();
+    g.save();
+    g.clip();
+    g.fillStyle = hd;
+    g.beginPath();
+    g.ellipse(hx + 120, hy - 140, 90, 120, 0, 0, Math.PI * 2);
+    g.fill();
+    g.fillStyle = 'rgba(255,255,255,0.22)';
+    g.beginPath();
+    g.ellipse(hx - 70, hy - 175, 50, 20, -0.4, 0, Math.PI * 2);
+    g.fill();
+    g.restore();
+    g.beginPath();
+    g.moveTo(hx - 178, hy - 58);
+    g.bezierCurveTo(hx - 176, hy - 250, hx + 176, hy - 250, hx + 178, hy - 58);
+    g.closePath();
+    g.stroke();
+    g.fillStyle = hd;
+    g.beginPath();
+    g.roundRect(hx - 196, hy - 74, 392, 30, 15);
+    g.fill();
+    g.stroke();
+    g.lineWidth = 7;
+    g.beginPath();
+    g.moveTo(hx - 150, hy - 50);
+    g.quadraticCurveTo(hx - 150, hy + 110, hx, hy + 128);
+    g.stroke();
+  } else if (head === 'beret') {
+    // a soft beret pulled to one side, with a little stalk on top
+    g.fillStyle = hc;
+    g.beginPath();
+    g.ellipse(hx + 24, hy - 112, 182, 62, 0.1, 0, Math.PI * 2);
+    g.fill();
+    g.save();
+    g.clip();
+    g.fillStyle = hd;
+    g.beginPath();
+    g.ellipse(hx + 120, hy - 96, 120, 60, 0.1, 0, Math.PI * 2);
+    g.fill();
+    g.restore();
+    g.beginPath();
+    g.ellipse(hx + 24, hy - 112, 182, 62, 0.1, 0, Math.PI * 2);
+    g.stroke();
+    g.fillStyle = hd;
+    g.beginPath();
+    g.roundRect(hx - 130, hy - 86, 260, 26, 13);
+    g.fill();
+    g.stroke();
+    stick(g, [[hx + 30, hy - 172], [hx + 36, hy - 198]], 12);
+  }
+  if (look.stars) {
+    // silver stars across the front of the headwear
+    const n = look.stars;
+    const sy = head === 'peaked' ? hy - 120 : head === 'helmet' ? hy - 150 : hy - 110;
+    for (let i = 0; i < n; i++) {
+      const sx = hx + (i - (n - 1) / 2) * 62;
+      g.fillStyle = '#eef0f4';
+      g.beginPath();
+      for (let k = 0; k < 10; k++) {
+        const r = k % 2 ? 11 : 27;
+        const a = -Math.PI / 2 + (k * Math.PI) / 5;
+        g.lineTo(sx + Math.cos(a) * r, sy + Math.sin(a) * r);
+      }
+      g.closePath();
+      g.fill();
+      g.lineWidth = 5;
+      g.strokeStyle = INK;
+      g.stroke();
+    }
+  }
+  if (look.moustache && !look.beard) {
+    g.fillStyle = look.moustache;
+    g.beginPath();
+    g.moveTo(hx, hy + 40);
+    g.quadraticCurveTo(hx - 44, hy + 22, hx - 80, hy + 54);
+    g.quadraticCurveTo(hx - 36, hy + 66, hx, hy + 50);
+    g.quadraticCurveTo(hx + 36, hy + 66, hx + 80, hy + 54);
+    g.quadraticCurveTo(hx + 44, hy + 22, hx, hy + 40);
+    g.fill();
+    g.lineWidth = 7;
+    g.strokeStyle = INK;
     g.stroke();
   }
   if (look.beard) drawBeard(g, hx, hy, look.beard, expr);

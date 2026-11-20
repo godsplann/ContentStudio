@@ -1,6 +1,6 @@
 # The Soldier Who Ate His Cigarettes
 
-**Channel:** Undercover · **Made:** 19 November 2026 · **Length:** 65 s · **File:** `wojtek.mp4`
+**Channel:** Undercover · **Made:** 19 November 2026 · **Length:** 65 s · **Video:** file not kept
 **Narrator:** Albert B. Squid (ElevenLabs, eleven_v4, one take, 845 credits; the voice was given "Voytek" so the name is pronounced right) · **Code:** `studio/src/wojtek/` · **Bed:** `studio/scripts/make_bed_wojtek.py`
 
 ## Title
