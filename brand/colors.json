@@ -1,0 +1,18 @@
+{
+  "name": "Mind Matter",
+  "colors": {
+    "navy":        {"hex": "#101b3f", "use": "Main background, logo ground"},
+    "navy-deep":   {"hex": "#0a112c", "use": "Bottom of the background gradient, fade to black"},
+    "navy-top":    {"hex": "#121e46", "use": "Top of the background gradient"},
+    "ink":         {"hex": "#0b1330", "use": "Inside of chips, screens and dark panels; text on yellow or teal"},
+    "panel":       {"hex": "#1a2757", "use": "Cards, tiles, empty grid cells"},
+    "yellow":      {"hex": "#ffc93c", "use": "Primary accent. First of two concepts being compared (CPU). The Mind particle"},
+    "teal":        {"hex": "#3ddc97", "use": "Secondary accent. Second of two concepts (GPU). Success ticks"},
+    "white":       {"hex": "#ffffff", "use": "Body text, captions, the M in the logo"},
+    "orange":      {"hex": "#ff8a5c", "use": "Warnings, 'cannot do this' labels, small highlights. Use sparingly"},
+    "cream":       {"hex": "#fff8e7", "use": "Ground of the light logo variant only"},
+    "yellow-dark": {"hex": "#f2a516", "use": "Accent on the cream ground only"}
+  },
+  "gradient": {"background": ["#121e46", "#0a112c"], "direction": "top to bottom"},
+  "caption_box": {"rgba": [6, 10, 30, 0.84]}
+}

@@ -1,0 +1,27 @@
+<html><head><style>@font-face{font-family:Bebas;src:url(../../fonts/BebasNeue-Regular.ttf)}
+@font-face{font-family:SG;src:url(../../fonts/SpaceGrotesk-Bold.woff)}
+html,body{margin:0;padding:0;overflow:hidden}
+#c{width:1000px;height:1000px;background:radial-gradient(circle at 50% 45%,#ffb184 0%,#f4805c 50%,#de5f45 100%)}
+</style></head><body><div id="c"><svg width="1000" height="1000" viewBox="0 0 1000 1000"><defs>
+<radialGradient id="lit" cx="50%" cy="100%" r="85%"><stop offset="0" stop-color="#fff6c8" stop-opacity=".95"/><stop offset=".6" stop-color="#ffe9a8" stop-opacity=".45"/><stop offset="1" stop-color="#fff6c8" stop-opacity="0"/></radialGradient>
+<linearGradient id="dome" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#f4efe4"/><stop offset="1" stop-color="#d9cdb4"/></linearGradient>
+<linearGradient id="q" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe27a"/><stop offset="1" stop-color="#ffb43c"/></linearGradient>
+<filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
+</defs><g transform="translate(500 500) scale(1.08) translate(-500 -490)">
+<!-- light spilling up from the plate -->
+<path d="M300 700 L190 300 L810 300 L700 700 Z" fill="url(#lit)"/>
+<ellipse cx="500" cy="640" rx="190" ry="90" fill="#fff6c8" opacity=".55" filter="url(#soft)"/>
+<g stroke="#14161c" stroke-linejoin="round" stroke-linecap="round">
+ <!-- plate -->
+ <path d="M190 712 Q500 760 810 712 L790 748 Q500 800 210 748 Z" fill="#f4efe4" stroke-width="16"/>
+ <!-- question mark -->
+ <text x="500" y="708" font-family="Bebas" font-size="360" fill="url(#q)" text-anchor="middle" stroke="#14161c" stroke-width="14" paint-order="stroke">?</text>
+ <!-- lifted dome -->
+ <g transform="rotate(-20 300 360)">
+  <path d="M190 400 C190 160 650 160 650 400 Z" fill="url(#dome)" stroke-width="18"/>
+  <path d="M265 330 C285 260 340 220 400 205" fill="none" stroke="#ffffff" stroke-width="18" opacity=".9"/>
+  <rect x="160" y="392" width="520" height="40" rx="20" fill="#e3d8c1" stroke-width="16"/>
+  <circle cx="420" cy="205" r="30" fill="#e3d8c1" stroke-width="14"/>
+ </g>
+</g>
+<path d="M800 454 Q808.28 491.72 846 500 Q808.28 508.28 800 546 Q791.72 508.28 754 500 Q791.72 491.72 800 454 Z" fill="#fff6c8" stroke="#14161c" stroke-width="7" stroke-linejoin="round"/><path d="M205 528 Q210.76 554.24 237 560 Q210.76 565.76 205 592 Q199.24 565.76 173 560 Q199.24 554.24 205 528 Z" fill="#fff6c8" stroke="#14161c" stroke-width="5" stroke-linejoin="round"/><path d="M760 276 Q764.32 295.68 784 300 Q764.32 304.32 760 324 Q755.68 304.32 736 300 Q755.68 295.68 760 276 Z" fill="#fff6c8" stroke="#14161c" stroke-width="5" stroke-linejoin="round"/></g></svg></div></body></html>
